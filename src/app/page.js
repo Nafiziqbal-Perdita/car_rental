@@ -1,14 +1,5 @@
-import AdminPage from "./admin/page";
+import CustomerFrontEndPage from "./customerFrontEnd/page";
 
 export default function Home() {
-  
-  return <>
-{/* TODO: Customer frontEnd, it will be default route */}
-
-
-  <AdminPage /> 
-  {/* TODO: It will be set in a route of "/admin" */}
-  
-  
-  </>;
+  return <CustomerFrontEndPage />;
 }

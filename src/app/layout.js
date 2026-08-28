@@ -14,8 +14,8 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata = {
-  title: "Admin Dashboard | BestCar",
-  description: "BestCar Admin Dashboard & Fleet Management",
+  title: "BestCar | Easy Car Rental",
+  description: "Book a rental car quickly and easily with BestCar.",
 };
 
 export default function RootLayout({ children }) {
@@ -24,7 +24,9 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${nunito.variable} ${nunitoSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#FBFBFB] text-[#212B36]">{children}</body>
+      <body className="flex min-h-full flex-col bg-[#FBFBFB] font-sans text-[#212B36]">
+        {children}
+      </body>
     </html>
   );
 }
