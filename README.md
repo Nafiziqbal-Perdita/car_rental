@@ -1,36 +1,36 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BestCar Car Rental
+
+A beginner-friendly Next.js car rental landing page. The page uses mock data for available cars, booking options, benefits, and customer reviews.
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+## Run the project
 npm run dev
-# or
+Install dependencies and start the development server:
 yarn dev
 # or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/customerFrontEnd/page.js` contains the main page and page-level state.
+- `src/components/` contains reusable UI pieces such as the booking form and icons.
+- `src/data/customerMockData.js` contains the text, car list, and other display data.
+- `src/app/globals.css` contains global styles and font settings.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+## Useful commands
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+bun run lint
+bun run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
+The project uses the Next.js App Router and `next/font` for font optimization.
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

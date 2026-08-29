@@ -1,24 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --font-heading: var(--font-nunito), 'Nunito', sans-serif;
-  --font-body: var(--font-nunito-sans), 'Nunito Sans', sans-serif;
-  --primary-orange: #FE9F43;
-  --primary-orange-light: #FFF6EE;
-  --primary-orange-pill: #FFEDDD;
-  --secondary-navy: #092C4C;
-  --title-navy: #1B2850;
-  --text-dark: #212B36;
-  --text-muted: #646B72;
-  --text-body: #5B6670;
-  --text-light-muted: #7A8086;
-  --success-green: #28C76F;
-  --success-badge: #3EB780;
-  --danger-red: #E70D0D;
-  --link-blue: #155EEF;
-  --border-light: #E6EAED;
-  --border-stroke: rgba(145, 158, 171, 0.3);
-  --bg-dashboard: #FBFBFB;
+  --font-heading: var(--font-nunito), "Nunito", sans-serif;
+  --font-body: var(--font-nunito-sans), "Nunito Sans", sans-serif;
 }
 
 * {
@@ -27,18 +11,22 @@
 
 body {
   margin: 0;
-  background-color: #FBFBFB;
-  color: #212B36;
+  background-color: #fbfbfb;
+  color: #212b36;
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
-/* Custom Scrollbars */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
   height: 4px;
@@ -49,15 +37,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #cbd5e1;
   border-radius: 9999px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
-}
-
-/* Keyframe Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
