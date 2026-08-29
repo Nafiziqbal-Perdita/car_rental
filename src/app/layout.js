@@ -1,6 +1,5 @@
 import { Nunito, Nunito_Sans } from "next/font/google";
 import "./globals.css";
-import AiAssistantRoot from "@/features/aiAssistant/components/AiAssistantRoot";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -27,7 +26,6 @@ export default function RootLayout({ children }) {
     >
       <body className="flex min-h-full flex-col bg-[#FBFBFB] font-sans text-[#212B36]">
         {children}
-        <AiAssistantRoot />
       </body>
     </html>
   );
