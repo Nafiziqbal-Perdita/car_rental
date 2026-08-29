@@ -16,9 +16,19 @@ const starterMessages = [
     },
 ];
 
+const formatMessageText = (text) => {
+    if (!text) return "";
+
+    return text
+        .replace(/\*\*(.*?)\*\*/g, "$1")
+        .replace(/\*(.*?)\*/g, "$1")
+        .replace(/`(.*?)`/g, "$1")
+        .replace(/\n{3,}/g, "\n\n")
+        .trim();
+};
+
 export default function AiAssistantPanel({ isOpen, onClose }) {
     const [input, setInput] = useState("");
-    const [isMounted, setIsMounted] = useState(false);
     const panelRef = useRef(null);
 
     const systemPrompt = useMemo(
@@ -52,14 +62,13 @@ Keep responses short, practical, and useful for car rental customers and staff.
     });
 
     useEffect(() => {
-        setIsMounted(true);
-    }, []);
+        if (!isOpen || !panelRef.current) return;
 
-    useEffect(() => {
-        if (!isOpen && panelRef.current) {
-            panelRef.current.scrollTop = panelRef.current.scrollHeight;
-        }
-    }, [isOpen, messages]);
+        panelRef.current.scrollTo({
+            top: panelRef.current.scrollHeight,
+            behavior: "smooth",
+        });
+    }, [isOpen, messages, isLoading]);
 
     const visibleMessages = messages.length > 0 ? messages : starterMessages;
 
@@ -110,30 +119,32 @@ Keep responses short, practical, and useful for car rental customers and staff.
                 {visibleMessages.map((message) => {
                     const isAssistant = message.role === "assistant";
                     const text = (() => {
-                        if (typeof message.content === "string") return message.content;
+                        if (typeof message.content === "string") return formatMessageText(message.content);
                         if (Array.isArray(message.content)) {
-                            return message.content
-                                .map((part) => {
-                                    if (typeof part === "string") return part;
-                                    if (part && typeof part === "object") {
-                                        if (part.type === "text") return part.text || part.content || "";
-                                        if (part.type === "reasoning") return part.text || part.summary || "";
-                                        if (part.content && typeof part.content === "string") return part.content;
-                                    }
-                                    return "";
-                                })
-                                .join(" ")
-                                .trim();
+                            return formatMessageText(
+                                message.content
+                                    .map((part) => {
+                                        if (typeof part === "string") return part;
+                                        if (part && typeof part === "object") {
+                                            if (part.type === "text") return part.text || part.content || "";
+                                            if (part.type === "reasoning") return part.text || part.summary || "";
+                                            if (part.content && typeof part.content === "string") return part.content;
+                                        }
+                                        return "";
+                                    })
+                                    .join(" ")
+                            );
                         }
                         if (Array.isArray(message.parts)) {
-                            return message.parts
-                                .map((part) => {
-                                    if (part?.type === "text") return part.content || "";
-                                    if (part?.type === "reasoning") return part.text || part.summary || "";
-                                    return "";
-                                })
-                                .join(" ")
-                                .trim();
+                            return formatMessageText(
+                                message.parts
+                                    .map((part) => {
+                                        if (part?.type === "text") return part.content || "";
+                                        if (part?.type === "reasoning") return part.text || part.summary || "";
+                                        return "";
+                                    })
+                                    .join(" ")
+                            );
                         }
                         return "";
                     })();
@@ -144,10 +155,10 @@ Keep responses short, practical, and useful for car rental customers and staff.
                             className={`flex ${isAssistant ? "justify-start" : "justify-end"}`}
                         >
                             <div
-                                className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-6 shadow-sm ${isAssistant
+                                className={`max-w-[85%] rounded-[18px] px-3.5 py-2.5 text-sm leading-6 shadow-sm ${isAssistant
                                         ? "bg-white text-[#212B36] ring-1 ring-slate-200"
                                         : "bg-[#FE9F43] text-white"
-                                    }`}
+                                    } whitespace-pre-wrap break-words`}
                             >
                                 {text || "..."}
                             </div>
