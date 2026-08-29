@@ -277,3 +277,63 @@ export const initialDashboardData = {
     }
   ]
 };
+
+// --- DATA GENERATOR FOR 300 ADDITIONAL DASHBOARD TRANSACTIONS ---
+
+const generateDemoTransactions = (count, startId) => {
+  const vehicles = [
+    { name: "Range Rover", type: "white-suv" },
+    { name: "Red Toyota", type: "red-car" },
+    { name: "Blue Nissan", type: "blue-coupe" },
+    { name: "Toyota Corolla", type: "toyota-corolla" },
+    { name: "Honda Civic", type: "compact-car" },
+    { name: "Audi S3", type: "red-car" },
+    { name: "BMW X5", type: "white-suv" }
+  ];
+  const firstNames = ["James", "Sarah", "Michael", "Emily", "Daniel", "Olivia", "Chris", "Sophia", "Matthew", "Isabella"];
+  const lastNames = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez"];
+  const paymentMethods = ["Paypal", "Apple Pay", "Stripe", "PayU", "Credit Card", "Google Pay"];
+  const statuses = ["Success", "Pending", "Cancelled"];
+  
+  const newTransactions = [];
+
+  for (let i = 0; i < count; i++) {
+    const vehicle = vehicles[Math.floor(Math.random() * vehicles.length)];
+    const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+    const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+    const payment = paymentMethods[Math.floor(Math.random() * paymentMethods.length)];
+    const status = statuses[Math.floor(Math.random() * statuses.length)];
+    
+    // Generate random amounts between 50 and 2000
+    const rawAmount = parseFloat((Math.random() * (2000 - 50) + 50).toFixed(2));
+    
+    // Generate a random date within the first week of Jan 2024 to match the dashboard presets
+    const day = Math.floor(Math.random() * 7) + 1; 
+    const dateStr = `2024-01-0${day}`;
+    
+    // Generate 12-digit order number
+    const orderNumber = `#${Math.floor(100000000000 + Math.random() * 900000000000)}`;
+
+    newTransactions.push({
+      id: startId + i,
+      orderNumber: orderNumber,
+      vehicle: vehicle.name,
+      carType: vehicle.type,
+      time: `${Math.floor(Math.random() * 60) + 1} Mins`,
+      customerName: `${firstName} ${lastName}`,
+      paymentMethod: payment,
+      status: status,
+      amount: `$${rawAmount.toFixed(2)}`,
+      rawAmount: rawAmount,
+      date: dateStr
+    });
+  }
+
+  return newTransactions;
+};
+
+// Automatically appends the 300 new transactions to your existing array (starting at ID 6)
+initialDashboardData.transactions = [
+  ...initialDashboardData.transactions, 
+  ...generateDemoTransactions(300, 6)
+];

@@ -36,83 +36,72 @@ export const customerFrontEndData = {
       price: "$72.00",
       type: "Popular",
       color: "#d9e8ff",
-      image:
-        "https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=700&q=80",
+      image: "https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=700&q=80",
     },
     {
       name: "Audi A4",
       price: "$84.00",
       type: "Large",
       color: "#ffe3d0",
-      image:
-        "https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=700&q=80",
+      image: "https://images.unsplash.com/photo-1616422285623-13ff0162193c?auto=format&fit=crop&w=700&q=80",
     },
     {
       name: "Nissan Altima",
       price: "$68.00",
       type: "Small",
       color: "#d8f0e7",
-      image:
-        "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=700&q=80",
+      image: "https://images.unsplash.com/photo-1590362891991-f776e747a588?auto=format&fit=crop&w=700&q=80",
     },
     {
       name: "Toyota Corolla",
       price: "$76.00",
       type: "Large",
       color: "#f3e2ff",
-      image:
-        "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=700&q=80",
+      image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?auto=format&fit=crop&w=700&q=80",
     },
     {
       name: "Range Rover",
       price: "$108.00",
       type: "Exclusive",
       color: "#ffe8c9",
-      image:
-        "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=700&q=80",
+      image: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=700&q=80",
     },
     {
       name: "Kia Sorento",
       price: "$92.00",
       type: "Popular",
       color: "#dff1ff",
-      image:
-        "https://images.unsplash.com/photo-1606016159991-dfe4f2746c8c?auto=format&fit=crop&w=700&q=80",
+      image: "https://images.unsplash.com/photo-1606016159991-dfe4f2746c8c?auto=format&fit=crop&w=700&q=80",
     },
     {
       name: "Honda Civic",
       price: "$70.00",
       type: "Small",
       color: "#ffe0e8",
-      image:
-        "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&w=700&q=80",
+      image: "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?auto=format&fit=crop&w=700&q=80",
     },
     {
       name: "Mercedes C-Class",
       price: "$98.00",
       type: "Exclusive",
       color: "#e4e4ff",
-      image:
-        "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=700&q=80",
+      image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=700&q=80",
     },
   ],
   benefits: [
     {
       title: "Customer Support",
-      description:
-        "Extremely responsive customer support provided by the team at BestCar UK.",
+      description: "Extremely responsive customer support provided by the team at BestCar UK.",
       icon: "phone",
     },
     {
       title: "Best Price Guaranteed",
-      description:
-        "Extremely best prices for all categories offered at the best car rental UK.",
+      description: "Extremely best prices for all categories offered at the best car rental UK.",
       icon: "tag",
     },
     {
       title: "Many Location",
-      description:
-        "The best locations near the biggest cities, ready whenever you are.",
+      description: "The best locations near the biggest cities, ready whenever you are.",
       icon: "map",
     },
   ],
@@ -120,30 +109,71 @@ export const customerFrontEndData = {
     {
       name: "Viezh Robert",
       location: "Warsaw, Poland",
-      quote:
-        "Wow... I am very happy to use this service, it turned out to be more than my expectations and so far there have been no problems.",
+      quote: "Wow... I am very happy to use this service, it turned out to be more than my expectations and so far there have been no problems.",
       rating: "4.5",
     },
     {
       name: "Yessica Christy",
       location: "Shanxi, China",
-      quote:
-        "The booking was simple, the car was spotless, and the whole team made our trip feel effortless.",
+      quote: "The booking was simple, the car was spotless, and the whole team made our trip feel effortless.",
       rating: "4.8",
     },
     {
       name: "Kim Young Jou",
       location: "Seoul, South Korea",
-      quote:
-        "A reliable rental experience with clear prices and friendly service from start to finish.",
+      quote: "A reliable rental experience with clear prices and friendly service from start to finish.",
       rating: "4.7",
     },
   ],
   footer: {
-    description:
-      "Our vision is to provide convenience and help increase your travel freedom.",
+    description: "Our vision is to provide convenience and help increase your travel freedom.",
     about: ["How it works", "Featured", "Partnership"],
     community: ["Events", "Blog", "Podcast"],
     socials: ["Discord", "Instagram", "Twitter"],
   },
 };
+
+// --- DATA GENERATOR FOR 300 ADDITIONAL CARS ---
+
+const generateDemoCars = (count) => {
+  const brands = ["Toyota", "Honda", "Ford", "BMW", "Audi", "Tesla", "Hyundai", "Kia", "Mercedes", "Volvo"];
+  const models = ["Cruiser", "Sedan", "SUV", "Hatch", "Sport", "EV", "Pro", "Max", "Ultra", "Lite"];
+  const types = ["Popular", "Large", "Small", "Exclusive", "Electric"];
+  const colors = ["#d9e8ff", "#ffe3d0", "#d8f0e7", "#f3e2ff", "#ffe8c9", "#dff1ff", "#ffe0e8", "#e4e4ff", "#f5f5f5", "#e8f7ec"];
+  const images = [
+    "https://images.unsplash.com/photo-1550314405-509338b47214?auto=format&fit=crop&w=700&q=80",
+    "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=700&q=80",
+    "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=700&q=80",
+    "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=700&q=80",
+    "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=700&q=80"
+  ];
+
+  const newCars = [];
+
+  for (let i = 0; i < count; i++) {
+    const brand = brands[Math.floor(Math.random() * brands.length)];
+    const model = models[Math.floor(Math.random() * models.length)];
+    const type = types[Math.floor(Math.random() * types.length)];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const image = images[Math.floor(Math.random() * images.length)];
+    
+    // Generate realistic pricing based on type
+    let basePrice = 50;
+    if (type === "Large" || type === "Electric") basePrice += 30;
+    if (type === "Exclusive") basePrice += 60;
+    const finalPrice = basePrice + Math.floor(Math.random() * 20);
+
+    newCars.push({
+      name: `${brand} ${model} ${Math.floor(Math.random() * 100) + 1}`,
+      price: `$${finalPrice}.00`,
+      type: type,
+      color: color,
+      image: image,
+    });
+  }
+
+  return newCars;
+};
+
+// Automatically appends the 300 new cars to your existing array when the file is loaded
+customerFrontEndData.cars = [...customerFrontEndData.cars, ...generateDemoCars(300)];
