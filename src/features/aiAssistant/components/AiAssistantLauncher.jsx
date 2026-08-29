@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 
-export default function AiAssistantLauncher({ onOpen, isOpen }) {
+export default function AiAssistantLauncher({ onOpen, onClose, isOpen }) {
   return (
     <button
       type="button"
-      onClick={onOpen}
-      aria-label="Open AI assistant"
+      onClick={isOpen ? onClose : onOpen}
+      aria-label={isOpen ? "Close AI assistant" : "Open AI assistant"}
+      aria-pressed={isOpen}
       className={`fixed bottom-5 right-5 z-50 flex items-center justify-center rounded-full border border-[#FE9F43]/40 bg-[#0F172A] text-white shadow-[0_20px_45px_rgba(15,23,42,0.25)] transition-all duration-200 hover:scale-[1.03] hover:bg-[#111827] ${
         isOpen ? "h-14 w-14" : "h-14 w-14"
       }`}

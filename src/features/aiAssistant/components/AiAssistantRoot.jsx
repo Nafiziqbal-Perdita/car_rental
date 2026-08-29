@@ -9,7 +9,11 @@ export default function AiAssistantRoot() {
 
   return (
     <>
-      <AiAssistantLauncher isOpen={isOpen} onOpen={() => setIsOpen(true)} />
+      <AiAssistantLauncher
+        isOpen={isOpen}
+        onOpen={() => setIsOpen(true)}
+        onClose={() => setIsOpen(false)}
+      />
       <AiAssistantPanel isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </>
   );

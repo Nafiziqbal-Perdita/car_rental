@@ -133,47 +133,18 @@ export const customerFrontEndData = {
   },
 };
 
-// --- DATA GENERATOR FOR 300 ADDITIONAL CARS ---
+// Keep the storefront catalog stable so SSR and hydration match exactly.
+const extraCars = [
+  { name: "Toyota Cruiser 11", price: "$65.00", type: "Popular", color: "#d9e8ff", image: "https://images.unsplash.com/photo-1550314405-509338b47214?auto=format&fit=crop&w=700&q=80" },
+  { name: "Honda Sedan 22", price: "$71.00", type: "Small", color: "#ffe3d0", image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=700&q=80" },
+  { name: "Ford SUV 35", price: "$82.00", type: "Large", color: "#d8f0e7", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=700&q=80" },
+  { name: "BMW Sport 41", price: "$103.00", type: "Exclusive", color: "#f3e2ff", image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=700&q=80" },
+  { name: "Audi EV 12", price: "$96.00", type: "Electric", color: "#ffe8c9", image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=700&q=80" },
+  { name: "Hyundai Pro 18", price: "$67.00", type: "Popular", color: "#dff1ff", image: "https://images.unsplash.com/photo-1550314405-509338b47214?auto=format&fit=crop&w=700&q=80" },
+  { name: "Kia Max 27", price: "$74.00", type: "Large", color: "#ffe0e8", image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=700&q=80" },
+  { name: "Mercedes Ultra 31", price: "$110.00", type: "Exclusive", color: "#e4e4ff", image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=700&q=80" },
+  { name: "Volvo Lite 07", price: "$88.00", type: "Small", color: "#f5f5f5", image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=700&q=80" },
+  { name: "Tesla EV 42", price: "$118.00", type: "Electric", color: "#e8f7ec", image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=700&q=80" },
+];
 
-const generateDemoCars = (count) => {
-  const brands = ["Toyota", "Honda", "Ford", "BMW", "Audi", "Tesla", "Hyundai", "Kia", "Mercedes", "Volvo"];
-  const models = ["Cruiser", "Sedan", "SUV", "Hatch", "Sport", "EV", "Pro", "Max", "Ultra", "Lite"];
-  const types = ["Popular", "Large", "Small", "Exclusive", "Electric"];
-  const colors = ["#d9e8ff", "#ffe3d0", "#d8f0e7", "#f3e2ff", "#ffe8c9", "#dff1ff", "#ffe0e8", "#e4e4ff", "#f5f5f5", "#e8f7ec"];
-  const images = [
-    "https://images.unsplash.com/photo-1550314405-509338b47214?auto=format&fit=crop&w=700&q=80",
-    "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=700&q=80",
-    "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=700&q=80",
-    "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=700&q=80",
-    "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=700&q=80"
-  ];
-
-  const newCars = [];
-
-  for (let i = 0; i < count; i++) {
-    const brand = brands[Math.floor(Math.random() * brands.length)];
-    const model = models[Math.floor(Math.random() * models.length)];
-    const type = types[Math.floor(Math.random() * types.length)];
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    const image = images[Math.floor(Math.random() * images.length)];
-    
-    // Generate realistic pricing based on type
-    let basePrice = 50;
-    if (type === "Large" || type === "Electric") basePrice += 30;
-    if (type === "Exclusive") basePrice += 60;
-    const finalPrice = basePrice + Math.floor(Math.random() * 20);
-
-    newCars.push({
-      name: `${brand} ${model} ${Math.floor(Math.random() * 100) + 1}`,
-      price: `$${finalPrice}.00`,
-      type: type,
-      color: color,
-      image: image,
-    });
-  }
-
-  return newCars;
-};
-
-// Automatically appends the 300 new cars to your existing array when the file is loaded
-customerFrontEndData.cars = [...customerFrontEndData.cars, ...generateDemoCars(300)];
+customerFrontEndData.cars = [...customerFrontEndData.cars, ...extraCars];
