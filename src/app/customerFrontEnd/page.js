@@ -193,10 +193,10 @@ export default function CustomerFrontEndPage() {
             ))}
           </div>
           <div className="mx-auto mt-10 grid max-w-[1312px] grid-cols-4 gap-5 max-lg:grid-cols-2 max-sm:grid-cols-2">
-            {cars.map((car) => (
+            {cars.map((car, index) => (
               <article
                 className="relative min-h-[388px] overflow-hidden rounded-[10px] bg-white p-6 max-sm:min-h-[270px] max-sm:p-3.5"
-                key={car.name}
+                key={`${car.id || car.name}-${index}`}
               >
                 <button
                   className={`absolute right-5 top-4 z-10 text-2xl ${favorites.includes(car.name) ? "text-red-500" : "text-[#1A202C]"}`}

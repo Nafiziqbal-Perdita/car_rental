@@ -116,7 +116,7 @@ Keep responses short, practical, and useful for car rental customers and staff.
             </div>
 
             <div ref={panelRef} className="flex max-h-[420px] min-h-[300px] flex-col gap-3 overflow-y-auto bg-[#F8FAFC] p-3">
-                {visibleMessages.map((message) => {
+                {visibleMessages.map((message, index) => {
                     const isAssistant = message.role === "assistant";
                     const text = (() => {
                         if (typeof message.content === "string") return formatMessageText(message.content);
@@ -151,7 +151,7 @@ Keep responses short, practical, and useful for car rental customers and staff.
 
                     return (
                         <div
-                            key={message.id || `${message.role}-${Math.random()}`}
+                            key={message.id || `${message.role}-${index}`}
                             className={`flex ${isAssistant ? "justify-start" : "justify-end"}`}
                         >
                             <div
